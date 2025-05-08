@@ -11,6 +11,7 @@
 ## 致用户
 
 此页面为开发用文档。使用说明请参见[VOICEVOX官网](https://voicevox.hiroshiba.jp/)。
+这是voicevox的中文汉化版本
 
 ## 致有意贡献项目的开发者
 
