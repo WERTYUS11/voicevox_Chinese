@@ -1,303 +1,288 @@
 # VOICEVOX
 
-[![releases](https://img.shields.io/github/v/release/VOICEVOX/voicevox?label=Release)](https://github.com/VOICEVOX/voicevox/releases)
-[![build](https://github.com/VOICEVOX/voicevox/actions/workflows/build.yml/badge.svg)](https://github.com/VOICEVOX/voicevox/actions/workflows/build.yml)
-[![test](https://github.com/VOICEVOX/voicevox/actions/workflows/test.yml/badge.svg)](https://github.com/VOICEVOX/voicevox/actions/workflows/test.yml)
-[![Discord](https://img.shields.io/discord/879570910208733277?color=5865f2&label=&logo=discord&logoColor=ffffff)](https://discord.gg/WMwWetrzuh)
+[![版本发布](https://img.shields.io/github/v/release/VOICEVOX/voicevox?label=Release)](https://github.com/VOICEVOX/voicevox/releases)  
+[![构建状态](https://github.com/VOICEVOX/voicevox/actions/workflows/build.yml/badge.svg)](https://github.com/VOICEVOX/voicevox/actions/workflows/build.yml)  
+[![测试状态](https://github.com/VOICEVOX/voicevox/actions/workflows/test.yml/badge.svg)](https://github.com/VOICEVOX/voicevox/actions/workflows/test.yml)  
+[![Discord社区](https://img.shields.io/discord/879570910208733277?color=5865f2&label=&logo=discord&logoColor=ffffff)](https://discord.gg/WMwWetrzuh)  
 
-[VOICEVOX](https://voicevox.hiroshiba.jp/) のエディターです。
+这是[VOICEVOX](https://voicevox.hiroshiba.jp/)的编辑器项目。  
+（引擎部分参见[VOICEVOX ENGINE](https://github.com/VOICEVOX/voicevox_engine/)，核心库参见[VOICEVOX CORE](https://github.com/VOICEVOX/voicevox_core/)，整体架构详见[本文档](./docs/整体架构.md)。）
 
-（エンジンは [VOICEVOX ENGINE](https://github.com/VOICEVOX/voicevox_engine/) 、
-コアは [VOICEVOX CORE](https://github.com/VOICEVOX/voicevox_core/) 、
-全体構成は [こちら](./docs/全体構成.md) に詳細があります。）
+## 致用户
 
-## ユーザーの方へ
+此页面为开发用文档。使用说明请参见[VOICEVOX官网](https://voicevox.hiroshiba.jp/)。
 
-こちらは開発用のページになります。利用方法に関しては[VOICEVOX 公式サイト](https://voicevox.hiroshiba.jp/) をご覧ください。
+## 致有意贡献项目的开发者
 
-## プロジェクトに貢献したいと考えている方へ
+VOICEVOX项目欢迎所有感兴趣的人参与贡献。  
+我们准备了[贡献指南](./CONTRIBUTING.md)说明参与流程。
 
-VOICEVOXプロジェクトは興味ある方の参画を歓迎しています。
-[貢献手順について説明したガイド](./CONTRIBUTING.md)をご用意しております。
+贡献不仅限于编程，还包括文档编写、测试用例生成、改进提案讨论等多种形式。  
+特别设有新手友好任务，期待您的加入。
 
-貢献というとプログラム作成と思われがちですが、ドキュメント執筆、テスト生成、改善提案への議論参加など様々な参加方法があります。
-初心者歓迎タスクもありますので、皆様のご参加をお待ちしております。
+本编辑器采用Electron・TypeScript・Vue・Vuex等技术栈，整体结构可能较难理解。  
+[代码导读](./docs/代码导读.md)文档介绍了项目结构，希望能为开发提供帮助。
 
-VOICEVOX のエディタは Electron・TypeScript・Vue・Vuex などが活用されており、全体構成がわかりにくくなっています。  
-[コードの歩き方](./docs/コードの歩き方.md)で構成を紹介しているので、開発の一助になれば幸いです。
+在提交Issue解决方案的Pull Request时，为避免多人重复处理同一Issue，  
+请在Issue中声明您开始工作，或先创建Draft状态的PR。
 
-Issue を解決するプルリクエストを作成される際は、別の方と同じ Issue に取り組むことを避けるため、
-Issue 側で取り組み始めたことを伝えるか、最初に Draft プルリクエストを作成してください。
+欢迎加入[VOICEVOX非官方Discord社区](https://discord.gg/WMwWetrzuh)参与开发讨论或日常交流。
 
-[VOICEVOX 非公式 Discord サーバー](https://discord.gg/WMwWetrzuh)にて、開発の議論や雑談を行っています。気軽にご参加ください。
+### 设计规范
 
-### デザインガイドライン
+请参考[UX・UI设计方针](./docs/UX・UI设计方针.md)。
 
-[UX・UI デザインの方針](./docs/UX・UIデザインの方針.md)をご参照ください。
+## 环境搭建
 
-## 環境構築
+安装[.node-version](.node-version)中指定版本的Node.js。  
+推荐使用Node.js版本管理工具（如[nvs](https://github.com/jasongin/nvs)或[Volta](https://volta.sh)），可便捷安装并自动切换版本。
 
-[.node-version](.node-version) に記載されているバージョンの Node.js をインストールしてください。  
-Node.js の管理ツール（[nvs](https://github.com/jasongin/nvs)や[Volta](https://volta.sh)など）を利用すると簡単にインストールでき、Node.js の自動切り替えもできます。
+安装Node.js后，请Fork并克隆[本仓库](https://github.com/VOICEVOX/voicevox.git)。
 
-Node.js をインストール後、[このリポジトリ](https://github.com/VOICEVOX/voicevox.git) を Fork して `git clone` してください。
+### 安装依赖库
 
-### 依存ライブラリをインストールする
-
-次のコマンドを実行することで依存ライブラリがインストール・アップデートされます。
+执行以下命令安装/更新依赖：
 
 ```bash
-npm i -g pnpm # 初回のみ
+npm i -g pnpm # 首次运行
 pnpm i
 ```
 
-## 実行
+## 运行
 
-### エンジンの準備
+### 引擎准备
 
-`.env.production`をコピーして`.env`を作成し、`VITE_DEFAULT_ENGINE_INFOS`内の`executionFilePath`に
-[製品版 VOICEVOX](https://voicevox.hiroshiba.jp/) 内の`vv-engine/run.exe`を指定すれば動きます。
+复制`.env.production`创建`.env`文件，在`VITE_DEFAULT_ENGINE_INFOS`中指定`executionFilePath`为  
+[正式版VOICEVOX](https://voicevox.hiroshiba.jp/)内的`vv-engine/run.exe`即可运行。
 
-Windows でインストール先を変更していない場合は`C:/Users/(ユーザー名)/AppData/Local/Programs/VOICEVOX/vv-engine/run.exe`を指定してください。  
-パスの区切り文字は`\`ではなく`/`なのでご注意ください。
+Windows默认安装路径为`C:/Users/(用户名)/AppData/Local/Programs/VOICEVOX/vv-engine/run.exe`。  
+注意路径分隔符应使用`/`而非`\`。
 
-macOS 向けの`VOICEVOX.app`を利用している場合は`/path/to/VOICEVOX.app/Resources/MacOS/vv-engine/run`を指定してください。
+macOS用户需指定`/path/to/VOICEVOX.app/Resources/MacOS/vv-engine/run`。
 
-Linux の場合は、[Releases](https://github.com/VOICEVOX/voicevox/releases/)から入手できる tar.gz 版に含まれる`vv-engine/run`コマンドを指定してください。
-AppImage 版の場合は`$ /path/to/VOICEVOX.AppImage --appimage-mount`でファイルシステムをマウントできます。
+Linux用户请使用[Releases](https://github.com/VOICEVOX/voicevox/releases/)中tar.gz包内的`vv-engine/run`命令。  
+AppImage版可通过`$ /path/to/VOICEVOX.AppImage --appimage-mount`挂载文件系统。
 
-VOICEVOX エディタの実行とは別にエンジン API のサーバを立てている場合は`executionFilePath`を指定する必要はありませんが、
-代わりに`executionEnabled`を`false`にしてください。
-これは製品版 VOICEVOX を起動している場合もあてはまります。
+若已单独启动引擎API服务器，则无需指定`executionFilePath`，  
+但需将`executionEnabled`设为`false`（适用于已启动正式版VOICEVOX的情况）。
 
-エンジン API の宛先エンドポイントを変更する場合は`VITE_DEFAULT_ENGINE_INFOS`内の`host`を変更してください。
+修改API端点需调整`VITE_DEFAULT_ENGINE_INFOS`中的`host`参数。
 
-### Electron の実行
+### 运行Electron
 
 ```bash
-# 開発しやすい環境で実行
+# 开发模式运行
 pnpm run electron:serve
 
-# ビルド時に近い環境で実行
+# 近似生产环境运行
 pnpm run electron:serve --mode production
 
-# 引数を指定して実行
+# 带参数运行
 pnpm run electron:serve -- ...
 ```
 
-音声合成エンジンのリポジトリはこちらです <https://github.com/VOICEVOX/voicevox_engine>
+语音合成引擎仓库：<https://github.com/VOICEVOX/voicevox_engine>
 
-### Storybook の実行
+### 运行Storybook
 
-Storybook を使ってコンポーネントを開発することができます。
+可通过Storybook进行组件开发：
 
 ```bash
 pnpm run storybook
 ```
 
-main ブランチの Storybook は[VOICEVOX/preview-pages](https://github.com/VOICEVOX/preview-pages)から確認できます。  
+main分支的Storybook部署于[VOICEVOX/preview-pages](https://github.com/VOICEVOX/preview-pages)：  
 <https://voicevox.github.io/preview-pages/preview/branch-main/storybook/index.html>
 
-### ブラウザ版の実行（開発中）
+### 运行浏览器版（开发中）
 
-別途音声合成エンジンを起動し、以下を実行して表示された localhost へアクセスします。
+需先启动语音合成引擎，执行以下命令后访问显示的localhost地址：
 
 ```bash
 pnpm run browser:serve
 ```
 
-また、main ブランチのビルド結果が[VOICEVOX/preview-pages](https://github.com/VOICEVOX/preview-pages)にデプロイされています。  
+main分支的构建结果部署于[VOICEVOX/preview-pages](https://github.com/VOICEVOX/preview-pages)：  
 <https://voicevox.github.io/preview-pages/preview/branch-main/editor/index.html>  
-今はローカル PC 上で音声合成エンジンを起動する必要があります。
+当前仍需在本地启动语音合成引擎。
 
-## ビルド
+## 构建
 
 ```bash
 pnpm run electron:build
 ```
 
-### Github Actions でビルド
+### 通过Github Actions构建
 
-fork したリポジトリで Actions を ON にし、workflow_dispatch で`build.yml`を起動すればビルドできます。
-成果物は Release にアップロードされます。
+在fork的仓库中启用Actions，通过workflow_dispatch触发`build.yml`即可构建。  
+产物将上传至Release页面。
 
-## テスト
+## 测试
 
-### 単体テスト
+### 单元测试
 
-`./tests/unit/` 以下にあるテストと、Storybookのテストを実行します。
+执行`./tests/unit/`下的测试及Storybook测试：
 
 ```bash
 pnpm run test:unit
-pnpm run test-watch:unit # 監視モード
-pnpm run test-ui:unit # VitestのUIを表示
-pnpm run test:unit --update # スナップショットの更新
+pnpm run test-watch:unit # 监控模式
+pnpm run test-ui:unit # 显示Vitest UI
+pnpm run test:unit --update # 更新快照
 ```
 
 > [!NOTE]  
-> `./tests/unit` 下のテストは、ファイル名によってテストを実行する環境が変化します。
->
-> - `.node.spec.ts`：Node.js 環境
-> - `.browser.spec.ts`：ブラウザ環境（Chromium）
-> - `.spec.ts`：ブラウザ環境（happy-domによるエミュレート）
+> `./tests/unit`下的测试根据文件名区分运行环境：  
+> - `.node.spec.ts`：Node.js环境  
+> - `.browser.spec.ts`：浏览器环境（Chromium）  
+> - `.spec.ts`：浏览器环境（happy-dom模拟）
 
-### ブラウザ End to End テスト
+### 浏览器端到端测试
 
-Electron の機能が不要な、UI や音声合成などの End to End テストを実行します。
+执行不依赖Electron功能的UI/语音合成等端到端测试。
 
-> [!NOTE]
-> 一部のエンジンの設定を書き換えるテストは、CI(Github Actions)上でのみ実行されるようになっています。
+> [!NOTE]  
+> 涉及引擎配置修改的测试仅在CI(Github Actions)中运行。
 
 ```bash
 pnpm run test:browser-e2e
-pnpm run test-watch:browser-e2e # 監視モード
-pnpm run test-watch:browser-e2e --headed # テスト中の UI を表示
-pnpm run test-ui:browser-e2e # Playwright の UI を表示
+pnpm run test-watch:browser-e2e # 监控模式
+pnpm run test-watch:browser-e2e --headed # 显示测试UI
+pnpm run test-ui:browser-e2e # 显示Playwright UI
 ```
 
-Playwright を使用しているためテストパターンを生成することもできます。
-**ブラウザ版を起動している状態で**以下のコマンドを実行してください。
+基于Playwright支持测试模式生成：  
+**在浏览器版运行状态下**执行：
 
 ```bash
 pnpm exec playwright codegen http://localhost:5173/ --viewport-size=1024,630
 ```
 
-詳細は [Playwright ドキュメントの Test generator](https://playwright.dev/docs/codegen-intro) を参照してください。
+详见[Playwright文档的测试生成器](https://playwright.dev/docs/codegen-intro)。
 
-### Storybook の Visual Regression Testing
+### Storybook可视化回归测试
 
-Storybook のコンポーネントのスクリーンショットを比較して、変更がある場合は差分を表示します。
+通过组件截图对比检测变更，显示差异部分。
 
-> [!NOTE]
-> このテストは Windows でのみ実行できます。
+> [!NOTE]  
+> 该测试仅支持Windows平台。
 
 ```bash
 pnpm run test:storybook-vrt
-pnpm run test-watch:storybook-vrt # 監視モード
-pnpm run test-ui:storybook-vrt # Playwright の UI を表示
+pnpm run test-watch:storybook-vrt # 监控模式
+pnpm run test-ui:storybook-vrt # 显示Playwright UI
 ```
 
-#### スクリーンショットの更新
+#### 快照更新
 
-ブラウザ End to End テストと Storybook では Visual Regression Testing を行っています。
-現在 VRT テストは Windows のみで行っています。
-以下の手順でスクリーンショットを更新できます：
+浏览器端到端测试和Storybook使用可视化回归测试。  
+当前VRT测试仅限Windows平台，按以下步骤更新快照：
 
-##### Github Actions で更新する場合
+##### 通过Github Actions更新
 
-1. フォークしたリポジトリの設定で GitHub Actions を有効にします。
-2. リポジトリの設定の Actions > General > Workflow permissions で Read and write permissions を選択します。
-3. `[update snapshots]` という文字列をコミットメッセージに含めてコミットします。
+1. 在fork的仓库设置中启用GitHub Actions  
+2. 仓库设置 > Actions > General > Workflow permissions中选择Read and write permissions  
+3. 提交包含`[update snapshots]`的commit：
 
    ```bash
-   git commit -m "UIを変更 [update snapshots]"
+   git commit -m "修改UI [update snapshots]"
    ```
 
-4. Github Workflow が完了すると、更新されたスクリーンショットがコミットされます。
-5. プルした後、空コミットをプッシュしてテストを再実行します。
+4. Workflow完成后将自动提交新快照  
+5. 拉取后推送空commit重新测试：
 
    ```bash
-   git commit --allow-empty -m "（テストを再実行）"
+   git commit --allow-empty -m "（重新运行测试）"
    git push
    ```
 
-> [!NOTE]
-> トークンを作成して Secrets に追加することで、自動的にテストを再実行できます。
->
-> 1. [Fine-granted Tokens](https://github.com/settings/personal-access-tokens/new) にアクセスします。
-> 2. 適当な名前を入力し、 `ユーザー名/voicevox` へのアクセス権を与え、 Repository permissions の Contents で Read and write を選択します。
->    <details>
->    <summary>設定例</summary>
->    <img src="./docs/res/Fine-granted_Tokensの作成.png" width="320">
->    </details>
-> 3. トークンを作成して文字列をコピーします。
-> 4. `ユーザー名/voicevox` のリポジトリの Settings > Secrets and variables > Actions > New repository secret を開きます。
-> 5. 名前に `PUSH_TOKEN` と入力し、先ほどの文字列を貼り付けて Secrets を追加します。
+> [!NOTE]  
+> 可通过创建Token并添加到Secrets实现自动重试：  
+> 1. 访问[Fine-granted Tokens](https://github.com/settings/personal-access-tokens/new)  
+> 2. 输入名称，授予`用户名/voicevox`仓库的Contents读写权限  
+> 3. 创建后复制Token字符串  
+> 4. 在`用户名/voicevox`仓库的Settings > Secrets and variables > Actions中添加名为`PUSH_TOKEN`的Secret  
 
-##### ローカルで更新する場合
+##### 本地更新
 
-ローカル PC の OS に対応したもののみが更新されます。
+仅更新当前操作系统对应的快照：
 
 ```bash
 pnpm run test:browser-e2e --update-snapshots
 ```
 
-### Electron End to End テスト
+### Electron端到端测试
 
-Electron の機能が必要な、エンジン起動・終了などを含めた End to End テストを実行します。
+执行依赖Electron功能的引擎启停等端到端测试：
 
 ```bash
 pnpm run test:electron-e2e
-pnpm run test-watch:electron-e2e # 監視モード
+pnpm run test-watch:electron-e2e # 监控模式
 ```
 
-## 依存ライブラリのライセンス情報の生成
+## 生成依赖库许可信息
 
-依存ライブラリのライセンス情報は Github Workflow でのビルド時に自動生成されます。以下のコマンドで生成できます。
+依赖库许可信息在Github Workflow构建时自动生成，也可手动生成：
 
 ```bash
-# get licenses.json from voicevox_engine as engine_licenses.json
+# 从voicevox_engine获取licenses.json保存为engine_licenses.json
 
 pnpm run license:generate -o voicevox_licenses.json
 pnpm run license:merge -o public/licenses.json -i engine_licenses.json -i voicevox_licenses.json
 ```
 
-## コードフォーマット
+## 代码格式化
 
-コードのフォーマットを整えます。プルリクエストを送る前に実行してください。
+提交PR前请执行格式化：
 
 ```bash
 pnpm run fmt
 ```
 
-## リント（静的解析）
+## 代码检查（静态分析）
 
-コードの静的解析を行い、バグを未然に防ぎます。プルリクエストを送る前に実行してください。
+执行静态分析预防潜在问题，提交PR前请运行：
 
 ```bash
 pnpm run lint
 ```
 
-## タイポチェック
+## 拼写检查
 
-[typos](https://github.com/crate-ci/typos) を使ってタイポのチェックを行っています。
+使用[typos](https://github.com/crate-ci/typos)进行拼写检查：
 
 ```bash
 pnpm run typos
 ```
 
-でタイポチェックを行えます。
-もし誤判定やチェックから除外すべきファイルがあれば
-[設定ファイルの説明](https://github.com/crate-ci/typos#false-positives) に従って`_typos.toml`を編集してください。
+如需排除误判文件，请参照[配置文件说明](https://github.com/crate-ci/typos#false-positives)修改`_typos.toml`。
 
-## 型チェック
+## 类型检查
 
-TypeScript の型チェックを行います。
+执行TypeScript类型检查：
 
 ```bash
 pnpm run typecheck
 ```
 
-## Markdownlint
+## Markdown检查
 
-Markdown の文法チェックを行います。
+Markdown语法检查：
 
 ```bash
 pnpm run markdownlint
 ```
 
-## Shellcheck
+## Shell脚本检查
 
-ShellScript の文法チェックを行います。
-インストール方法は [こちら](https://github.com/koalaman/shellcheck#installing) を参照してください。
+ShellScript语法检查，安装方法参见[官方文档](https://github.com/koalaman/shellcheck#installing)：
 
 ```bash
 shellcheck ./build/*.sh
 ```
 
-## OpenAPI generator
+## OpenAPI生成器
 
-音声合成エンジンが起動している状態で以下のコマンドを実行してください。
+在语音合成引擎运行状态下执行：
 
 ```bash
 curl http://127.0.0.1:50021/openapi.json >openapi.json
@@ -311,24 +296,24 @@ pnpm exec openapi-generator-cli generate \
 pnpm run fmt
 ```
 
-### OpanAPI generator のバージョンアップ
+### OpenAPI生成器版本升级
 
-新しいバージョンの確認・インストールは次のコマンドで行えます。
+通过以下命令检查/安装新版本：
 
 ```bash
 pnpm exec openapi-generator-cli version-manager list
 ```
 
-## VS Code でのデバッグ実行
+## VS Code调试
 
-npm scripts の `serve` や `electron:serve` などの開発ビルド下では、ビルドに使用している vite で sourcemap を出力するため、ソースコードと出力されたコードの対応付けが行われます。
+开发构建时（如`serve`或`electron:serve`），vite会生成sourcemap实现源码映射。
 
-`.vscode/launch.template.json` をコピーして `.vscode/launch.json` を、
-`.vscode/tasks.template.json` をコピーして `.vscode/tasks.json` を作成することで、
-開発ビルドを VS Code から実行し、デバッグを可能にするタスクが有効になります。
+复制`.vscode/launch.template.json`创建`.vscode/launch.json`，  
+复制`.vscode/tasks.template.json`创建`.vscode/tasks.json`，  
+即可通过VS Code启动开发构建并进行调试。
 
-## ライセンス
+## 许可证
 
-LGPL v3 と、ソースコードの公開が不要な別ライセンスのデュアルライセンスです。
-別ライセンスを取得したい場合は、ヒホに求めてください。  
-X アカウント: [@hiho_karuta](https://x.com/hiho_karuta)
+采用LGPL v3与无需公开源码的附加许可的双重授权。  
+如需获取附加许可，请联系ヒホ：  
+推特账号：[@hiho_karuta](https://x.com/hiho_karuta)
