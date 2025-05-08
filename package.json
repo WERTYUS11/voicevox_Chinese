@@ -1,6 +1,7 @@
+
 {
   "name": "voicevox",
-  "version": "999.999.999",
+  "version": "CHS0.0.1",
   "author": "Hiroshiba Kazuyuki",
   "private": true,
   "main": "./dist/main.js",
