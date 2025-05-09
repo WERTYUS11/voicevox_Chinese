@@ -15,11 +15,11 @@
       icon="push_pin"
       color="teal"
       class="title-bar-buttons"
-      aria-label="最前面固定を解除"
+      aria-label="解除最前方固定"
       @click="changePinWindow()"
     >
       <QTooltip :delay="500" class="text-body2" :offset="[11, 11]">
-        最前面固定を解除
+        解除最前方固定
       </QTooltip>
     </QBtn>
     <QBtn
@@ -31,11 +31,11 @@
       icon="push_pin"
       color="display"
       class="title-bar-buttons rotate-45"
-      aria-label="最前面に固定"
+      aria-label="固定在最前面"
       @click="changePinWindow()"
     >
       <QTooltip :delay="500" class="text-body2" :offset="[11, 11]">
-        最前面に固定
+        固定在最前面
       </QTooltip>
     </QBtn>
   </QBadge>
@@ -55,11 +55,11 @@
       icon="push_pin"
       color="teal"
       class="title-bar-buttons"
-      aria-label="最前面固定を解除"
+      aria-label="解除最前方固定"
       @click="changePinWindow()"
     >
       <QTooltip :delay="500" class="text-body2" :offset="[11, 11]">
-        最前面固定を解除
+        解除最前方固定
       </QTooltip>
     </QBtn>
     <QBtn
@@ -70,11 +70,11 @@
       round
       icon="push_pin"
       class="title-bar-buttons rotate-45"
-      aria-label="最前面に固定"
+      aria-label="固定在最前面"
       @click="changePinWindow()"
     >
       <QTooltip :delay="500" class="text-body2" :offset="[11, 11]">
-        最前面に固定
+        固定在最前面
       </QTooltip>
     </QBtn>
   </QBadge>

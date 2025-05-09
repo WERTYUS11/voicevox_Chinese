@@ -12,8 +12,8 @@
     dense
     toggleColor="primary"
     :options="[
-      { label: 'トーク', value: 'talk' },
-      { label: 'ソング', value: 'song' },
+      { label: '说话', value: 'talk' },
+      { label: '唱歌', value: 'song' },
     ]"
     @update:modelValue="switchEditor"
   />

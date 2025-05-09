@@ -55,12 +55,12 @@ export default meta;
 type Story = StoryObj<typeof Presentation>;
 
 export const Default: Story = {
-  name: "デフォルト",
+  name: "默认值",
   args: {},
 };
 
 export const WithBpmChange: Story = {
-  name: "テンポ変化",
+  name: "节奏变化",
   args: {
     tempos: [
       {
@@ -80,7 +80,7 @@ export const WithBpmChange: Story = {
 };
 
 export const WithTimeSignatureChange: Story = {
-  name: "拍子変化",
+  name: "拍子变化",
   args: {
     timeSignatures: [
       {
@@ -103,7 +103,7 @@ export const WithTimeSignatureChange: Story = {
 };
 
 export const WithOffset: Story = {
-  name: "スクロール",
+  name: "滚动",
   args: {
     offset: 480 * 4,
   },
@@ -137,7 +137,7 @@ export const Dense: Story = {
 };
 
 export const MovePlayhead: Story = {
-  name: "再生位置を移動",
+  name: "移动播放位置",
 
   play: async ({ canvasElement, args }) => {
     const ruler =

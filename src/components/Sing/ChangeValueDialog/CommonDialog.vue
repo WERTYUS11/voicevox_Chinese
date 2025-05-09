@@ -26,7 +26,7 @@
         <QSpace />
         <QBtn
           unelevated
-          label="キャンセル"
+          label="取消"
           color="surface"
           textColor="display"
           class="text-no-wrap text-bold q-mr-sm"
@@ -66,7 +66,7 @@ defineEmits({
 });
 
 const okText = computed(() =>
-  props.mode === "edit" ? "変更する" : "追加する",
+  props.mode === "edit" ? "更改" : "添加",
 );
 
 const handleOk = () => {

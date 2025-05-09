@@ -22,14 +22,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const CreateOpened: Story = {
-  name: "開いている：追加",
+  name: "打开：添加",
   args: {
     modelValue: true,
     mode: "add",
   },
 };
 export const ChangeOpened: Story = {
-  name: "開いている：変更",
+  name: "打开：更改",
   args: {
     modelValue: true,
     tempoChange: {
@@ -40,16 +40,16 @@ export const ChangeOpened: Story = {
 };
 
 export const ClickOk: Story = {
-  name: "OKボタンを押す：追加",
+  name: "按下确认按钮：添加",
   args: { ...CreateOpened.args },
   play: async ({ args }) => {
     const canvas = within(document.body); // ダイアログなので例外的にdocument.bodyを使う
 
-    const input = canvas.getByLabelText("テンポ");
+    const input = canvas.getByLabelText("节奏");
     await userEvent.clear(input);
     await userEvent.type(input, "100");
 
-    const button = canvas.getByRole("button", { name: /追加する/ });
+    const button = canvas.getByRole("button", { name: /添加/ });
     await userEvent.click(button);
 
     await expect(args["onOk"]).toBeCalledWith({
@@ -61,16 +61,16 @@ export const ClickOk: Story = {
 };
 
 export const ClickDelete: Story = {
-  name: "OKボタンを押す：編集",
+  name: "按下确认按钮：编辑",
   args: { ...ChangeOpened.args },
   play: async ({ args }) => {
     const canvas = within(document.body); // ダイアログなので例外的にdocument.bodyを使う
 
-    const input = canvas.getByLabelText("テンポ");
+    const input = canvas.getByLabelText("节奏");
     await userEvent.clear(input);
     await userEvent.type(input, "100");
 
-    const button = canvas.getByRole("button", { name: /変更する/ });
+    const button = canvas.getByRole("button", { name: /更改/ });
     await userEvent.click(button);
 
     await expect(args["onOk"]).toBeCalledWith({
@@ -82,12 +82,12 @@ export const ClickDelete: Story = {
 };
 
 export const CancelClose: Story = {
-  name: "キャンセルボタンを押す",
+  name: "点击取消按钮",
   args: { ...ChangeOpened.args },
   play: async ({ args }) => {
     const canvas = within(document.body); // ダイアログなので例外的にdocument.bodyを使う
 
-    const button = canvas.getByRole("button", { name: /キャンセル/ });
+    const button = canvas.getByRole("button", { name: /取消/ });
     await userEvent.click(button);
 
     await expect(args["onOk"]).not.toBeCalled();
@@ -95,7 +95,7 @@ export const CancelClose: Story = {
 };
 
 export const Closed: Story = {
-  name: "閉じている",
+  name: "关闭",
   tags: ["skip-screenshot"],
   args: {
     modelValue: false,

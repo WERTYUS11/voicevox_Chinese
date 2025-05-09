@@ -464,7 +464,7 @@ const menudata = computed<MenuItemData[]>(() => [
     subMenu: [
       {
         type: "button",
-        label: "密钥分配",
+        label: "快捷键分配",
         onClick() {
           void store.actions.SET_DIALOG_OPEN({
             isHotkeySettingDialogOpen: true,
