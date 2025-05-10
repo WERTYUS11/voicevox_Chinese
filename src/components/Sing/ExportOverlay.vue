@@ -5,15 +5,15 @@
       <div class="q-mt-xs">
         {{
           nowRendering
-            ? "レンダリング中・・・"
-            : `${exportingInfo.mediaName}を書き出し中・・・`
+            ? "渲染中……"
+            : `${exportingInfo.mediaName}正在输出……`
         }}
       </div>
       <!-- NOTE: 書き出しのキャンセルはレンダリング中にのみ可能 -->
       <QBtn
         v-if="nowRendering"
         padding="xs md"
-        :label="`${exportingInfo.mediaName}の書き出しをキャンセル`"
+        :label="`${exportingInfo.mediaName}取消输出`"
         class="q-mt-sm"
         outline
         @click="cancelExport"
@@ -29,8 +29,8 @@ import { ExhaustiveError } from "@/type/utility";
 
 type ExportingInfo =
   | { nowExporting: false }
-  | { nowExporting: true; mediaName: "音声" }
-  | { nowExporting: true; mediaName: "labファイル" };
+  | { nowExporting: true; mediaName: "语音" }
+  | { nowExporting: true; mediaName: "lab文件" };
 
 const store = useStore();
 
@@ -42,9 +42,9 @@ const exportingInfo = computed<ExportingInfo>(() => {
   if (store.state.exportState === "NOT_EXPORTING") {
     return { nowExporting: false };
   } else if (store.state.exportState === "EXPORTING_AUDIO") {
-    return { nowExporting: true, mediaName: "音声" };
+    return { nowExporting: true, mediaName: "语音" };
   } else if (store.state.exportState === "EXPORTING_LABEL") {
-    return { nowExporting: true, mediaName: "labファイル" };
+    return { nowExporting: true, mediaName: "lab文件" };
   } else {
     throw new ExhaustiveError(store.state.exportState);
   }

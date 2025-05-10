@@ -61,7 +61,7 @@ export const useMenuBarData = () => {
   const fileSubMenuData = computed<MenuItemData[]>(() => [
     {
       type: "button",
-      label: "音声書き出し",
+      label: "音频导出",
       onClick: () => {
         void exportAudioFile();
       },
@@ -69,7 +69,7 @@ export const useMenuBarData = () => {
     },
     {
       type: "button",
-      label: "labファイルを書き出し",
+      label: "导出lab文件",
       onClick: () => {
         void exportLabelFile();
       },
@@ -78,7 +78,7 @@ export const useMenuBarData = () => {
     { type: "separator" },
     {
       type: "button",
-      label: "プロジェクトをインポート",
+      label: "导入项目",
       onClick: () => {
         void importExternalSongProject();
       },
@@ -86,7 +86,7 @@ export const useMenuBarData = () => {
     },
     {
       type: "root",
-      label: "プロジェクトをエクスポート",
+      label: "导出项目",
       subMenu: (
         [
           ["smf", "MIDI (SMF)"],
@@ -114,7 +114,7 @@ export const useMenuBarData = () => {
     { type: "separator" },
     {
       type: "button",
-      label: "コピー",
+      label: "复制",
       onClick: () => {
         if (uiLocked.value) return;
         void store.actions.COPY_NOTES_TO_CLIPBOARD();
@@ -124,7 +124,7 @@ export const useMenuBarData = () => {
     },
     {
       type: "button",
-      label: "切り取り",
+      label: "剪切",
       onClick: () => {
         if (uiLocked.value) return;
         void store.actions.COMMAND_CUT_NOTES_TO_CLIPBOARD();
@@ -134,7 +134,7 @@ export const useMenuBarData = () => {
     },
     {
       type: "button",
-      label: "貼り付け",
+      label: "剪切",
       onClick: () => {
         if (uiLocked.value) return;
         void store.actions.COMMAND_PASTE_NOTES_FROM_CLIPBOARD();
@@ -144,7 +144,7 @@ export const useMenuBarData = () => {
     { type: "separator" },
     {
       type: "button",
-      label: "すべて選択",
+      label: "全选",
       onClick: () => {
         if (uiLocked.value) return;
         void store.actions.SELECT_ALL_NOTES_IN_TRACK({
@@ -155,7 +155,7 @@ export const useMenuBarData = () => {
     },
     {
       type: "button",
-      label: "選択解除",
+      label: "取消选择",
       onClick: () => {
         if (uiLocked.value) return;
         void store.actions.DESELECT_ALL_NOTES();
@@ -165,7 +165,7 @@ export const useMenuBarData = () => {
     { type: "separator" },
     {
       type: "button",
-      label: "クオンタイズ",
+      label: "量化",
       onClick: () => {
         if (uiLocked.value) return;
         void store.actions.COMMAND_QUANTIZE_SELECTED_NOTES();
@@ -181,8 +181,8 @@ export const useMenuBarData = () => {
     {
       type: "button",
       label: showSingCharacterPortrait.value
-        ? "立ち絵を非表示"
-        : "立ち絵を表示",
+        ? "隐藏立绘"
+        : "显示立绘",
       onClick: () => {
         setShowSingCharacterPortrait(!showSingCharacterPortrait.value);
       },

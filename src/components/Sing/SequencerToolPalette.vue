@@ -15,7 +15,7 @@
         transitionShow=""
         transitionHide=""
       >
-        選択優先
+        选择优先
       </QTooltip>
     </QBtn>
     <QBtn
@@ -33,7 +33,7 @@
         transitionShow=""
         transitionHide=""
       >
-        編集優先
+        编辑优先
       </QTooltip>
     </QBtn>
   </div>
@@ -53,7 +53,7 @@
         transitionShow=""
         transitionHide=""
       >
-        ピッチ編集
+        音高编辑
       </QTooltip>
     </QBtn>
     <QBtn
@@ -71,7 +71,7 @@
         transitionShow=""
         transitionHide=""
       >
-        ピッチ削除
+        音高删除
       </QTooltip>
     </QBtn>
   </div>

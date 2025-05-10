@@ -35,7 +35,7 @@
       transitionShow=""
       transitionHide=""
     >
-      ノートが重なっています
+      ノート重叠
     </QTooltip>
     <QTooltip
       v-if="hasPhraseError"
@@ -45,7 +45,7 @@
       transitionShow=""
       transitionHide=""
     >
-      フレーズが生成できません。歌詞は日本語1文字までです。
+      无法生成短语。歌词最多1个字
     </QTooltip>
   </div>
   <div
@@ -194,7 +194,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
   return [
     {
       type: "button",
-      label: "コピー",
+      label: "复制",
       disabled: props.nowPreviewing,
       onClick: async () => {
         contextMenu.value?.hide();
@@ -204,7 +204,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
     },
     {
       type: "button",
-      label: "切り取り",
+      label: "剪切",
       disabled: props.nowPreviewing,
       onClick: async () => {
         contextMenu.value?.hide();
@@ -215,7 +215,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
     { type: "separator" },
     {
       type: "button",
-      label: "クオンタイズ",
+      label: "量化",
       disabled: props.nowPreviewing || !props.isSelected,
       onClick: async () => {
         contextMenu.value?.hide();
@@ -226,7 +226,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
     { type: "separator" },
     {
       type: "button",
-      label: "削除",
+      label: "删除",
       disabled: props.nowPreviewing || !props.isSelected,
       onClick: async () => {
         contextMenu.value?.hide();

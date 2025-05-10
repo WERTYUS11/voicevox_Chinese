@@ -81,8 +81,8 @@
       @keydown.prevent.enter.exact="pushAudioTextIfNeeded"
     >
       <template #error>
-        文章が長いと正常に動作しない可能性があります。
-        句読点の位置で文章を分割してください。
+        句子太长可能无法正常工作
+        请按标点符号的位置分割句子
       </template>
       <template v-if="enableDeleteButton" #after>
         <QBtn
@@ -91,7 +91,7 @@
           icon="delete_outline"
           size="0.8rem"
           :disable="uiLocked"
-          :aria-label="`${textLineNumberIndex}行目を削除`"
+          :aria-label="`${textLineNumberIndex}删除行目`"
           @click="removeCell"
         />
       </template>
@@ -378,7 +378,7 @@ const putMultilineText = async (texts: string[]) => {
   const prevAudioKey = props.audioKey;
   if (audioTextBuffer.value == "") {
     const text = texts.shift();
-    if (text == undefined) throw new Error("予期せぬタイプエラーです。");
+    if (text == undefined) throw new Error("意想不到的类型错误");
     setAudioTextBuffer(text);
     await pushAudioTextIfNeeded();
   }
@@ -483,7 +483,7 @@ const removeCell = async () => {
       }
       if (willNextFocusIndex === -1) {
         throw new Error(
-          "次に選択するaudioKeyが見付かりませんでした（unreachable）",
+          "找不到下一个要选择的audioKey（unreachable）",
         );
       }
       emit("focusCell", {
@@ -549,7 +549,7 @@ const contextMenudata = ref<
   // NOTE: audioTextBuffer.value の変更が nativeEl.value に反映されるのはnextTick。
   {
     type: "button",
-    label: "切り取り",
+    label: "剪切",
     onClick: async () => {
       contextMenu.value?.hide();
       if (textFieldSelection.isEmpty) return;
@@ -565,7 +565,7 @@ const contextMenudata = ref<
   },
   {
     type: "button",
-    label: "コピー",
+    label: "复制",
     onClick: () => {
       contextMenu.value?.hide();
       if (textFieldSelection.isEmpty) return;
@@ -576,7 +576,7 @@ const contextMenudata = ref<
   },
   {
     type: "button",
-    label: "貼り付け",
+    label: "剪切",
     onClick: async () => {
       contextMenu.value?.hide();
       void paste();
@@ -586,7 +586,7 @@ const contextMenudata = ref<
   { type: "separator" },
   {
     type: "button",
-    label: "全選択",
+    label: "全选",
     onClick: async () => {
       contextMenu.value?.hide();
       textField.value?.select();
@@ -596,7 +596,7 @@ const contextMenudata = ref<
   { type: "separator" },
   {
     type: "button",
-    label: "読みを変えずに適用",
+    label: "适用不改变读音",
     onClick: async () => {
       contextMenu.value?.hide();
       isChangeFlag.value = false;
@@ -621,7 +621,7 @@ const readyForContextMenu = () => {
   const getMenuItemButton = (label: string) => {
     const item = contextMenudata.value.find((item) => item.label === label);
     if (item?.type !== "button")
-      throw new Error("コンテキストメニューアイテムの取得に失敗しました。");
+      throw new Error("获取上下文菜单项失败。");
     return item;
   };
 
@@ -647,12 +647,12 @@ const readyForContextMenu = () => {
 
   if (textFieldSelection.isEmpty) {
     isRangeSelected.value = false;
-    getMenuItemButton("切り取り").disabled = true;
-    getMenuItemButton("コピー").disabled = true;
+    getMenuItemButton("剪切").disabled = true;
+    getMenuItemButton("复制").disabled = true;
   } else {
     isRangeSelected.value = true;
-    getMenuItemButton("切り取り").disabled = false;
-    getMenuItemButton("コピー").disabled = false;
+    getMenuItemButton("剪切").disabled = false;
+    getMenuItemButton("复制").disabled = false;
   }
 };
 const endContextMenuOperation = async () => {

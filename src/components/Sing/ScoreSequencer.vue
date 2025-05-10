@@ -73,7 +73,7 @@
             previewing: nowPreviewing,
             [cursorClass]: true,
           }"
-          aria-label="シーケンサ"
+          aria-label="排序"
           @mousedown="onMouseDown"
           @mouseenter="onMouseEnter"
           @mouseleave="onMouseLeave"
@@ -1794,7 +1794,7 @@ const { registerHotkeyWithCleanup } = useHotkeyManager();
 
 registerHotkeyWithCleanup({
   editor: "song",
-  name: "コピー",
+  name: "复制",
   callback: () => {
     if (nowPreviewing.value) {
       return;
@@ -1808,7 +1808,7 @@ registerHotkeyWithCleanup({
 
 registerHotkeyWithCleanup({
   editor: "song",
-  name: "切り取り",
+  name: "全选",
   callback: () => {
     if (nowPreviewing.value) {
       return;
@@ -1822,7 +1822,7 @@ registerHotkeyWithCleanup({
 
 registerHotkeyWithCleanup({
   editor: "song",
-  name: "貼り付け",
+  name: "剪切",
   callback: () => {
     if (nowPreviewing.value) {
       return;
@@ -1833,7 +1833,7 @@ registerHotkeyWithCleanup({
 
 registerHotkeyWithCleanup({
   editor: "song",
-  name: "すべて選択",
+  name: "全选",
   callback: () => {
     if (nowPreviewing.value) {
       return;
@@ -1854,7 +1854,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
       ? [
           {
             type: "button",
-            label: "選択優先ツール",
+            label: "选择优先工具",
             onClick: () => {
               contextMenu.value?.hide();
               void store.actions.SET_SEQUENCER_NOTE_TOOL({
@@ -1865,7 +1865,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
           },
           {
             type: "button",
-            label: "編集優先ツール",
+            label: "编辑首选工具",
             onClick: () => {
               contextMenu.value?.hide();
               void store.actions.SET_SEQUENCER_NOTE_TOOL({
@@ -1879,7 +1879,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
       : [
           {
             type: "button",
-            label: "ピッチ描画ツール",
+            label: "音高绘制工具",
             onClick: () => {
               contextMenu.value?.hide();
               void store.actions.SET_SEQUENCER_PITCH_TOOL({
@@ -1890,7 +1890,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
           },
           {
             type: "button",
-            label: "ピッチ削除ツール",
+            label: "音高删除工具",
             onClick: () => {
               contextMenu.value?.hide();
               void store.actions.SET_SEQUENCER_PITCH_TOOL({
@@ -1904,7 +1904,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
   const baseMenuItems: ContextMenuItemData[] = [
     {
       type: "button",
-      label: "コピー",
+      label: "复制",
       onClick: () => {
         contextMenu.value?.hide();
         void store.actions.COPY_NOTES_TO_CLIPBOARD();
@@ -1914,7 +1914,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
     },
     {
       type: "button",
-      label: "切り取り",
+      label: "剪切",
       onClick: () => {
         contextMenu.value?.hide();
         void store.actions.COMMAND_CUT_NOTES_TO_CLIPBOARD();
@@ -1924,7 +1924,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
     },
     {
       type: "button",
-      label: "貼り付け",
+      label: "剪切",
       onClick: () => {
         contextMenu.value?.hide();
         void store.actions.COMMAND_PASTE_NOTES_FROM_CLIPBOARD();
@@ -1934,7 +1934,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
     { type: "separator" },
     {
       type: "button",
-      label: "すべて選択",
+      label: "全选",
       onClick: () => {
         contextMenu.value?.hide();
         void store.actions.SELECT_ALL_NOTES_IN_TRACK({
@@ -1945,7 +1945,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
     },
     {
       type: "button",
-      label: "選択解除",
+      label: "取消选择",
       onClick: () => {
         contextMenu.value?.hide();
         void store.actions.DESELECT_ALL_NOTES();
@@ -1956,7 +1956,7 @@ const contextMenuData = computed<ContextMenuItemData[]>(() => {
     { type: "separator" },
     {
       type: "button",
-      label: "クオンタイズ",
+      label: "量化",
       onClick: () => {
         contextMenu.value?.hide();
         void store.actions.COMMAND_QUANTIZE_SELECTED_NOTES();

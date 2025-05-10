@@ -2,7 +2,7 @@
   <div v-if="query" class="root full-height q-py-md" data-testid="AudioInfo">
     <div v-if="enablePreset" class="q-px-md">
       <div class="row items-center no-wrap q-mb-xs">
-        <div class="text-body1">プリセット</div>
+        <div class="text-body1">预设</div>
         <QBtn dense flat icon="more_vert" :disable="uiLocked">
           <QMenu transitionDuration="100">
             <QList>
@@ -19,7 +19,7 @@
                   ></QAvatar>
                 </QItemSection>
                 <QItemSection>
-                  <QItemLabel>プリセット新規登録</QItemLabel>
+                  <QItemLabel>预设新注册</QItemLabel>
                 </QItemSection>
               </QItem>
               <QItem
@@ -35,7 +35,7 @@
                   ></QAvatar>
                 </QItemSection>
                 <QItemSection>
-                  <QItemLabel>プリセット管理</QItemLabel>
+                  <QItemLabel>预设管理</QItemLabel>
                 </QItemSection>
               </QItem>
             </QList>
@@ -65,7 +65,7 @@
           <template #no-option>
             <QItem>
               <QItemSection class="text-grey">
-                プリセットはありません
+                没有预设
               </QItemSection>
             </QItem>
           </template>
@@ -78,7 +78,7 @@
           class="col-auto q-ml-xs"
           size="sm"
           textColor="display"
-          :label="isRegisteredPreset ? '再登録' : '登録'"
+          :label="isRegisteredPreset ? '重新注册' : '注册'"
           @click="registerPreset({ overwrite: isRegisteredPreset })"
         />
       </div>
@@ -89,7 +89,7 @@
       <QDialog v-model="showsPresetNameDialog" @beforeHide="closeAllDialog">
         <QCard style="min-width: 350px">
           <QCardSection>
-            <div class="text-h6">プリセット登録</div>
+            <div class="text-h6">预设注册</div>
           </QCardSection>
 
           <QForm @submit.prevent="checkRewritePreset">
@@ -98,7 +98,7 @@
                 fillInput
                 autofocus
                 hideSelected
-                label="タイトル"
+                label="标题"
                 color="primary"
                 useInput
                 inputDebounce="0"
@@ -113,10 +113,10 @@
               <QBtn
                 v-close-popup
                 flat
-                label="キャンセル"
+                label="取消"
                 @click="closeAllDialog"
               />
-              <QBtn flat type="submit" label="確定" />
+              <QBtn flat type="submit" label="确定" />
             </QCardActions>
           </QForm>
         </QCard>
@@ -126,7 +126,7 @@
       <QDialog v-model="showsPresetRewriteDialog" @beforeHide="closeAllDialog">
         <QCard>
           <QCardSection>
-            <div class="text-h6">プリセットの再登録</div>
+            <div class="text-h6">重新注册预设</div>
           </QCardSection>
           <QCardSection>
             <QList>
@@ -135,14 +135,14 @@
                   <QAvatar icon="arrow_forward" textColor="blue" />
                 </QItemSection>
                 <QItemSection>
-                  プリセットを再登録し、このプリセットが設定されたテキスト欄全てに再適用する
+                  重新注册预设并将其重新应用于所有已设置预设的文本字段
                 </QItemSection>
               </QItem>
               <QItem clickable class="no-margin" @click="updatePreset(false)">
                 <QItemSection avatar>
                   <QAvatar icon="arrow_forward" textColor="blue" />
                 </QItemSection>
-                <QItemSection> プリセットの再登録のみ行う </QItemSection>
+                <QItemSection> 只需重新注册预设 </QItemSection>
               </QItem>
               <QItem
                 v-close-popup
@@ -153,7 +153,7 @@
                 <QItemSection avatar>
                   <QAvatar icon="arrow_forward" textColor="blue" />
                 </QItemSection>
-                <QItemSection>キャンセル</QItemSection>
+                <QItemSection>取消</QItemSection>
               </QItem>
             </QList>
           </QCardSection>
@@ -228,7 +228,7 @@
             {{
               morphingTargetCharacterInfo
                 ? morphingTargetCharacterInfo.metas.speakerName
-                : "未設定"
+                : "未设定"
             }}
           </div>
           <!-- 横幅が狭い場合に改行させるため分割 -->
@@ -252,18 +252,18 @@
         class="text-warning"
         style="font-size: 0.7rem"
       >
-        非対応エンジンです
+        不兼容的引擎
       </div>
       <div
         v-else-if="morphingTargetVoice && !isValidMorphingInfo"
         class="text-warning"
         style="font-size: 0.7rem"
       >
-        無効な設定です
+        无效的设置
       </div>
       <div :class="{ disabled: morphingTargetStyleInfo == undefined }">
         <span class="text-body1 q-mb-xs"
-          >割合
+          >比率
           {{
             morphingRateSlider.state.currentValue.value != undefined
               ? morphingRateSlider.state.currentValue.value.toFixed(2)
@@ -358,7 +358,7 @@ type ParameterConfig = {
 };
 const parameterConfigs = computed<ParameterConfig[]>(() => [
   {
-    label: "話速",
+    label: "语速",
     sliderProps: {
       modelValue: () => query.value?.speedScale ?? null,
       disable: () =>
@@ -395,7 +395,7 @@ const parameterConfigs = computed<ParameterConfig[]>(() => [
     key: "pitchScale",
   },
   {
-    label: "抑揚",
+    label: "语调变化",
     sliderProps: {
       modelValue: () => query.value?.intonationScale ?? null,
       disable: () =>
@@ -433,7 +433,7 @@ const parameterConfigs = computed<ParameterConfig[]>(() => [
     key: "volumeScale",
   },
   {
-    label: "間の長さ",
+    label: "停顿时间",
     sliderProps: {
       modelValue: () => query.value?.pauseLengthScale ?? null,
       disable: () =>
@@ -452,7 +452,7 @@ const parameterConfigs = computed<ParameterConfig[]>(() => [
     key: "pauseLengthScale",
   },
   {
-    label: "開始無音",
+    label: "开头等待时间",
     sliderProps: {
       modelValue: () => query.value?.prePhonemeLength ?? null,
       disable: () => uiLocked.value,
@@ -470,7 +470,7 @@ const parameterConfigs = computed<ParameterConfig[]>(() => [
     key: "prePhonemeLength",
   },
   {
-    label: "終了無音",
+    label: "结尾等待时间",
     sliderProps: {
       modelValue: () => query.value?.postPhonemeLength ?? null,
       disable: () => uiLocked.value,
@@ -748,7 +748,7 @@ const selectablePresetList = computed<PresetSelectModelType[]>(() => {
   if (isRegisteredPreset.value) {
     topPresetList.push({
       key: undefined,
-      label: "プリセット解除",
+      label: "取消预设",
     });
   }
 
@@ -770,7 +770,7 @@ const presetSelectModel = computed<PresetSelectModelType>({
   get: () => {
     if (!isRegisteredPreset.value)
       return {
-        label: "プリセット選択",
+        label: "预设选择",
         key: undefined,
       };
     if (audioPresetKey.value == undefined)
