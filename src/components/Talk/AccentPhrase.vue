@@ -246,7 +246,7 @@ const uiLocked = computed(() => store.getters.UI_LOCKED);
 const contextMenudata = ref<[MenuItemButton]>([
   {
     type: "button",
-    label: "削除",
+    label: "删除",
     onClick: () => {
       void store.actions.COMMAND_DELETE_ACCENT_PHRASE({
         audioKey: props.audioKey,

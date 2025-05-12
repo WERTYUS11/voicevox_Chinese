@@ -15,7 +15,7 @@
         class="track-list-button"
         @click="deleteTrack"
       >
-        <QTooltip :delay="500">トラックを削除</QTooltip>
+        <QTooltip :delay="500">删除轨道</QTooltip>
       </QBtn>
       <QBtn
         color="default"
@@ -28,7 +28,7 @@
         class="track-list-button"
         @click="addTrack"
       >
-        <QTooltip :delay="500">トラックを追加</QTooltip>
+        <QTooltip :delay="500">添加轨道</QTooltip>
       </QBtn>
       <QBtn
         color="default"
@@ -41,7 +41,7 @@
         class="track-list-button"
         @click="unsoloAllTracks"
       >
-        <QTooltip :delay="500">すべてのソロを解除</QTooltip>
+        <QTooltip :delay="500">取消所有独奏</QTooltip>
       </QBtn>
     </div>
     <Draggable

@@ -1,5 +1,5 @@
 <template>
-  <div>パラメーターパネル</div>
+  <div>参数面板</div>
   <!-- TODO: 音素タイミングなどを実装する -->
 </template>
 

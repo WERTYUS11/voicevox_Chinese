@@ -1,6 +1,6 @@
 {
   "name": "voicevox",
-  "version": "999.999.999",
+  "version": "CHS0.0.1",
   "author": "Hiroshiba Kazuyuki",
   "private": true,
   "main": "./dist/main.js",
@@ -10,7 +10,7 @@
   "volta": {
     "node": "22.14.0"
   },
-  "packageManager": "pnpm@10.3.0",
+  "packageManager": "pnpm@10.10.0",
   "scripts": {
     "// --- lint ---": "",
     "lint": "eslint .",

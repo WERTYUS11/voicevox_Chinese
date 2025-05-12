@@ -4,17 +4,17 @@
       <div class="side">
         <div class="detail-selector">
           <QTabs v-model="selectedDetail" dense vertical class="text-display">
-            <QTab name="accent" label="ｱｸｾﾝﾄ" />
+            <QTab name="accent" label="发音" />
             <QTab
               name="pitch"
-              label="ｲﾝﾄﾈｰｼｮﾝ"
+              label="语调"
               :disable="
                 !(supportedFeatures && supportedFeatures.adjustMoraPitch)
               "
             />
             <QTab
               name="length"
-              label="長さ"
+              label="发音长度"
               :disable="
                 !(supportedFeatures && supportedFeatures.adjustPhonemeLength)
               "
@@ -49,14 +49,14 @@
           class="tip-tweakable-slider-by-scroll"
         >
           <p>
-            マウスホイールを使って<br />
-            スライダーを微調整できます。
+            使用鼠标滚轮<br />
+            可以继续微小调整。
           </p>
-          ホイール: ±0.1<br />
-          <span v-if="isMac">Command</span><span v-else>Ctrl</span> + ホイール:
+          鼠标滚轮: ±0.1<br />
+          <span v-if="isMac">Command</span><span v-else>Ctrl</span> + 鼠标滚轮:
           ±0.01<br />
-          <span v-if="isMac">Option</span><span v-else>Alt</span> + ホイール:
-          一括調整
+          <span v-if="isMac">Option</span><span v-else>Alt</span> + 鼠标滚轮:
+          一次性调整
         </ToolTip>
         <AccentPhrase
           v-for="(accentPhrase, accentPhraseIndex) in accentPhrases"
@@ -112,7 +112,7 @@ const { registerHotkeyWithCleanup } = useHotkeyManager();
 
 registerHotkeyWithCleanup({
   editor: "talk",
-  name: "再生/停止",
+  name: "连续播放/停止",
   callback: () => {
     if (!nowPlaying.value && !nowGenerating.value && !uiLocked.value) {
       void play();
@@ -123,14 +123,14 @@ registerHotkeyWithCleanup({
 });
 registerHotkeyWithCleanup({
   editor: "talk",
-  name: "ｱｸｾﾝﾄ欄を表示",
+  name: "显示重音栏",
   callback: () => {
     selectedDetail.value = "accent";
   },
 });
 registerHotkeyWithCleanup({
   editor: "talk",
-  name: "ｲﾝﾄﾈｰｼｮﾝ欄を表示",
+  name: "显示语调栏",
   callback: () => {
     if (supportedFeatures.value?.adjustMoraPitch) {
       selectedDetail.value = "pitch";
@@ -139,7 +139,7 @@ registerHotkeyWithCleanup({
 });
 registerHotkeyWithCleanup({
   editor: "talk",
-  name: "長さ欄を表示",
+  name: "显示长度栏",
   callback: () => {
     if (supportedFeatures.value?.adjustPhonemeLength) {
       selectedDetail.value = "length";
@@ -148,7 +148,7 @@ registerHotkeyWithCleanup({
 });
 registerHotkeyWithCleanup({
   editor: "talk",
-  name: "全体のイントネーションをリセット",
+  name: "重置整体语调",
   callback: () => {
     if (!uiLocked.value && store.getters.ACTIVE_AUDIO_KEY) {
       const audioKeys = store.state.experimentalSetting.enableMultiSelect
@@ -162,7 +162,7 @@ registerHotkeyWithCleanup({
 });
 registerHotkeyWithCleanup({
   editor: "talk",
-  name: "選択中のアクセント句のイントネーションをリセット",
+  name: "重置所选重音短语的语调",
   callback: () => {
     if (
       !uiLocked.value &&
@@ -250,8 +250,8 @@ const play = async () => {
   } catch (e) {
     const msg = handlePossiblyNotMorphableError(e);
     void store.actions.SHOW_ALERT_DIALOG({
-      title: "再生に失敗しました",
-      message: msg ?? "エンジンの再起動をお試しください。",
+      title: "播放失败",
+      message: msg ?? "请尝试重新启动引擎",
     });
   }
 };

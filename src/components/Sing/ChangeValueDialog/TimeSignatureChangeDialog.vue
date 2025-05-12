@@ -1,7 +1,7 @@
 <template>
   <CommonDialog
     v-model="modelValue"
-    :title="props.mode === 'add' ? '拍子の追加' : '拍子の編集'"
+    :title="props.mode === 'add' ? '添加拍子' : '编辑拍子'"
     name="拍子"
     :mode="props.mode"
     @ok="() => $emit('ok', { timeSignatureChange })"
@@ -16,7 +16,7 @@
       transitionShow="none"
       transitionHide="none"
       class="value-input"
-      aria-label="拍子の分子"
+      aria-label="拍子的分子"
     />
     <div class="q-px-sm">/</div>
     <QSelect
@@ -30,7 +30,7 @@
       transitionShow="none"
       transitionHide="none"
       class="value-input"
-      aria-label="拍子の分母"
+      aria-label="拍子的分母"
     />
   </CommonDialog>
 </template>

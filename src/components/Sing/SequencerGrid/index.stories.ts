@@ -62,12 +62,12 @@ export default meta;
 type Story = StoryObj<typeof Presentation>;
 
 export const Default: Story = {
-  name: "デフォルト",
+  name: "默认值",
   args: {},
 };
 
 export const WithTimeSignatureChange: Story = {
-  name: "拍子変化",
+  name: "拍子变化",
   args: {
     timeSignatures: [
       {

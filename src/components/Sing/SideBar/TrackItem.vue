@@ -13,13 +13,13 @@
         :menudata="[
           {
             type: 'button',
-            label: 'トラック追加',
+            label: '添加轨道',
             onClick: addTrack,
             disableWhenUiLocked: true,
           },
           {
             type: 'button',
-            label: 'トラック削除',
+            label: '删除轨道',
             onClick: deleteTrack,
             disabled: tracks.size === 1,
             disableWhenUiLocked: true,

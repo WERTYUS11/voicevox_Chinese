@@ -26,7 +26,7 @@
           type="number"
           dense
           :modelValue="volumeRangeAdjustmentInputBuffer"
-          label="声量"
+          label="音量"
           hideBottomSpace
           unelevated
           class="volume-range-adjustment"
@@ -41,7 +41,7 @@
         hideBottomSpace
         outlined
         unelevated
-        label="テンポ"
+        label="节奏"
         class="sing-tempo"
         padding="0"
         @update:modelValue="setBpmInputBuffer"
@@ -149,7 +149,7 @@
         optionsDense
         hideDropdownIcon
         unelevated
-        label="スナップ"
+        label="快照"
         transitionShow="none"
         transitionHide="none"
         class="sing-snap"
@@ -190,7 +190,7 @@ const canRedo = computed(() => store.getters.CAN_REDO(editor));
 const { registerHotkeyWithCleanup } = useHotkeyManager();
 registerHotkeyWithCleanup({
   editor,
-  name: "元に戻す",
+  name: "恢复原状",
   callback: () => {
     if (!uiLocked.value && canUndo.value) {
       undo();
@@ -199,7 +199,7 @@ registerHotkeyWithCleanup({
 });
 registerHotkeyWithCleanup({
   editor,
-  name: "やり直す",
+  name: "重新开始",
   callback: () => {
     if (!uiLocked.value && canRedo.value) {
       redo();
@@ -209,7 +209,7 @@ registerHotkeyWithCleanup({
 
 registerHotkeyWithCleanup({
   editor,
-  name: "再生/停止",
+  name: "播放/暂停",
   callback: () => {
     if (nowPlaying.value) {
       stop();

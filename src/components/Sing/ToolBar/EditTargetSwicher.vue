@@ -15,7 +15,7 @@
         transitionShow=""
         transitionHide=""
       >
-        ノート編集
+        笔记编辑
       </QTooltip>
     </QBtn>
 
@@ -34,7 +34,7 @@
         transitionShow=""
         transitionHide=""
       >
-        ピッチ編集<br />{{ !isMac ? "Ctrl" : "Cmd" }}+クリックで消去
+        音调编辑<br />{{ !isMac ? "Ctrl" : "Cmd" }}+点击删除
       </QTooltip>
     </QBtn>
   </QBtnGroup>

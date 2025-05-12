@@ -25,7 +25,7 @@
       transitionHide="jump-down"
       anchor="top middle"
       self="center middle"
-      >無声化した音にイントネーションは存在しません。<br />テキストをクリックすることで無声化を解けます。</QTooltip
+      >声音不发音无法调整。<br />通过点击文本来消除静音。</QTooltip
     >
     <QSlider
       vertical

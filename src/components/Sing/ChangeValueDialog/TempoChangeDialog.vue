@@ -1,8 +1,8 @@
 <template>
   <CommonDialog
     v-model="modelValue"
-    :title="props.mode === 'add' ? 'テンポの追加' : 'テンポの編集'"
-    name="テンポ"
+    :title="props.mode === 'add' ? '添加节奏' : '编辑节奏'"
+    name="节奏"
     :mode="props.mode"
     @ok="() => $emit('ok', { tempoChange })"
     @hide="() => $emit('hide')"
@@ -13,7 +13,7 @@
       dense
       hideBottomSpace
       class="value-input"
-      aria-label="テンポ"
+      aria-label="节奏"
     />
   </CommonDialog>
 </template>
