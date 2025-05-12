@@ -36,7 +36,7 @@ export function useRightClickContextMenu(
     const getMenuItemButton = (label: string) => {
       const item = contextMenudata.value.find((item) => item.label === label);
       if (item?.type !== "button")
-        throw new Error("コンテキストメニューアイテムの取得に失敗しました。");
+        throw new Error("获取上下文菜单项失败。");
       return item;
     };
 
@@ -57,11 +57,11 @@ export function useRightClickContextMenu(
     }
 
     if (inputSelection.isEmpty) {
-      getMenuItemButton("切り取り").disabled = true;
-      getMenuItemButton("コピー").disabled = true;
+      getMenuItemButton("剪切").disabled = true;
+      getMenuItemButton("复制").disabled = true;
     } else {
-      getMenuItemButton("切り取り").disabled = false;
-      getMenuItemButton("コピー").disabled = false;
+      getMenuItemButton("剪切").disabled = false;
+      getMenuItemButton("复制").disabled = false;
     }
   };
 
@@ -76,7 +76,7 @@ export function useRightClickContextMenu(
   >([
     {
       type: "button",
-      label: "切り取り",
+      label: "剪切",
       onClick: async () => {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         contextMenuRef.value?.hide();
@@ -86,7 +86,7 @@ export function useRightClickContextMenu(
     },
     {
       type: "button",
-      label: "コピー",
+      label: "复印",
       onClick: async () => {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         contextMenuRef.value?.hide();
@@ -96,7 +96,7 @@ export function useRightClickContextMenu(
     },
     {
       type: "button",
-      label: "貼り付け",
+      label: "粘贴",
       onClick: async () => {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         contextMenuRef.value?.hide();
@@ -107,7 +107,7 @@ export function useRightClickContextMenu(
     { type: "separator" },
     {
       type: "button",
-      label: "全選択",
+      label: "全选",
       onClick: async () => {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         contextMenuRef.value?.hide();

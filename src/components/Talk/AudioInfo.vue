@@ -19,7 +19,11 @@
                   ></QAvatar>
                 </QItemSection>
                 <QItemSection>
+<<<<<<< HEAD
                   <QItemLabel>新建预设</QItemLabel>
+=======
+                  <QItemLabel>预设新注册</QItemLabel>
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
                 </QItemSection>
               </QItem>
               <QItem
@@ -78,7 +82,11 @@
           class="col-auto q-ml-xs"
           size="sm"
           textColor="display"
+<<<<<<< HEAD
           :label="isRegisteredPreset ? '重新注册' : '登录'"
+=======
+          :label="isRegisteredPreset ? '重新注册' : '注册'"
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
           @click="registerPreset({ overwrite: isRegisteredPreset })"
         />
       </div>
@@ -153,7 +161,7 @@
                 <QItemSection avatar>
                   <QAvatar icon="arrow_forward" textColor="blue" />
                 </QItemSection>
-                <QItemSection>キャンセル</QItemSection>
+                <QItemSection>取消</QItemSection>
               </QItem>
             </QList>
           </QCardSection>
@@ -263,7 +271,11 @@
       </div>
       <div :class="{ disabled: morphingTargetStyleInfo == undefined }">
         <span class="text-body1 q-mb-xs"
+<<<<<<< HEAD
           >比例
+=======
+          >比率
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
           {{
             morphingRateSlider.state.currentValue.value != undefined
               ? morphingRateSlider.state.currentValue.value.toFixed(2)
@@ -395,7 +407,11 @@ const parameterConfigs = computed<ParameterConfig[]>(() => [
     key: "pitchScale",
   },
   {
+<<<<<<< HEAD
     label: "变化",
+=======
+    label: "语调变化",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
     sliderProps: {
       modelValue: () => query.value?.intonationScale ?? null,
       disable: () =>
@@ -433,7 +449,11 @@ const parameterConfigs = computed<ParameterConfig[]>(() => [
     key: "volumeScale",
   },
   {
+<<<<<<< HEAD
     label: "间隔",
+=======
+    label: "停顿时间",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
     sliderProps: {
       modelValue: () => query.value?.pauseLengthScale ?? null,
       disable: () =>
@@ -452,7 +472,11 @@ const parameterConfigs = computed<ParameterConfig[]>(() => [
     key: "pauseLengthScale",
   },
   {
+<<<<<<< HEAD
     label: "不发音时间调整（开头）",
+=======
+    label: "开头等待时间",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
     sliderProps: {
       modelValue: () => query.value?.prePhonemeLength ?? null,
       disable: () => uiLocked.value,
@@ -470,7 +494,11 @@ const parameterConfigs = computed<ParameterConfig[]>(() => [
     key: "prePhonemeLength",
   },
   {
+<<<<<<< HEAD
     label: "不发音时间调整（结尾）",
+=======
+    label: "结尾等待时间",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
     sliderProps: {
       modelValue: () => query.value?.postPhonemeLength ?? null,
       disable: () => uiLocked.value,
@@ -770,7 +798,11 @@ const presetSelectModel = computed<PresetSelectModelType>({
   get: () => {
     if (!isRegisteredPreset.value)
       return {
+<<<<<<< HEAD
         label: "选择预设",
+=======
+        label: "预设选择",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
         key: undefined,
       };
     if (audioPresetKey.value == undefined)

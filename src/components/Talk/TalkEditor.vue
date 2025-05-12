@@ -562,7 +562,7 @@ watch(
       if (!altPort) return;
 
       void store.actions.SHOW_NOTIFY_AND_NOT_SHOW_AGAIN_BUTTON({
-        message: `${defaultPort}番ポートが使用中であるため ${engineName} は、${altPort}番ポートで起動しました`,
+        message: `${defaultPort}端口正在使用， ${engineName} 在${altPort}端口启动`,
         icon: "compare_arrows",
         tipName: "engineStartedOnAltPort",
       });
@@ -598,9 +598,9 @@ const loadDraggedFile = (event: { dataTransfer: DataTransfer | null }) => {
 
     default:
       void store.actions.SHOW_ALERT_DIALOG({
-        title: "対応していないファイルです",
+        title: "不支持的文件",
         message:
-          "テキストファイル (.txt) とVOICEVOXプロジェクトファイル (.vvproj) に対応しています。",
+          "支持文本文件（.txt）和VOICEVOX项目文件（.vvproj）。",
       });
   }
 };

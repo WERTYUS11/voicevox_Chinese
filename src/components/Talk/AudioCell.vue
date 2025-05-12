@@ -81,8 +81,13 @@
       @keydown.prevent.enter.exact="pushAudioTextIfNeeded"
     >
       <template #error>
+<<<<<<< HEAD
         句子过长可能会导致出现错误。
         请使用标点符号分割句子来控制长短。
+=======
+        句子太长可能无法正常工作
+        请按标点符号的位置分割句子
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
       </template>
       <template v-if="enableDeleteButton" #after>
         <QBtn
@@ -378,7 +383,11 @@ const putMultilineText = async (texts: string[]) => {
   const prevAudioKey = props.audioKey;
   if (audioTextBuffer.value == "") {
     const text = texts.shift();
+<<<<<<< HEAD
     if (text == undefined) throw new Error("出现了意想不到的错误。");
+=======
+    if (text == undefined) throw new Error("意想不到的类型错误");
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
     setAudioTextBuffer(text);
     await pushAudioTextIfNeeded();
   }
@@ -483,7 +492,11 @@ const removeCell = async () => {
       }
       if (willNextFocusIndex === -1) {
         throw new Error(
+<<<<<<< HEAD
           "未找到下一个选择的 audioKey（unreachable）",
+=======
+          "找不到下一个要选择的audioKey（unreachable）",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
         );
       }
       emit("focusCell", {
@@ -576,7 +589,11 @@ const contextMenudata = ref<
   },
   {
     type: "button",
+<<<<<<< HEAD
     label: "粘贴",
+=======
+    label: "剪切",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
     onClick: async () => {
       contextMenu.value?.hide();
       void paste();
@@ -596,7 +613,11 @@ const contextMenudata = ref<
   { type: "separator" },
   {
     type: "button",
+<<<<<<< HEAD
     label: "不改变读音进行应用",
+=======
+    label: "适用不改变读音",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
     onClick: async () => {
       contextMenu.value?.hide();
       isChangeFlag.value = false;

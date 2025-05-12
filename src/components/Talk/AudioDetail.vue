@@ -4,7 +4,11 @@
       <div class="side">
         <div class="detail-selector">
           <QTabs v-model="selectedDetail" dense vertical class="text-display">
+<<<<<<< HEAD
             <QTab name="accent" label="发音" />
+=======
+            <QTab name="accent" label="发音调整" />
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
             <QTab
               name="pitch"
               label="语调"
@@ -14,7 +18,11 @@
             />
             <QTab
               name="length"
+<<<<<<< HEAD
               label="发音长度"
+=======
+              label="发音时长"
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
               :disable="
                 !(supportedFeatures && supportedFeatures.adjustPhonemeLength)
               "
@@ -50,6 +58,7 @@
         >
           <p>
             使用鼠标滚轮<br />
+<<<<<<< HEAD
             可以继续微小调整。
           </p>
           鼠标滚轮: ±0.1<br />
@@ -57,6 +66,15 @@
           ±0.01<br />
           <span v-if="isMac">Option</span><span v-else>Alt</span> + 鼠标滚轮:
           一次性调整
+=======
+            可以微调滑块。
+          </p>
+          ホイール: ±0.1<br />
+          <span v-if="isMac">Command</span><span v-else>Ctrl</span> + 滚轮:
+          ±0.01<br />
+          <span v-if="isMac">Option</span><span v-else>Alt</span> + 滚轮:
+          批量调整
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
         </ToolTip>
         <AccentPhrase
           v-for="(accentPhrase, accentPhraseIndex) in accentPhrases"
@@ -112,7 +130,11 @@ const { registerHotkeyWithCleanup } = useHotkeyManager();
 
 registerHotkeyWithCleanup({
   editor: "talk",
+<<<<<<< HEAD
   name: "连续播放/停止",
+=======
+  name: "播放/停止",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
   callback: () => {
     if (!nowPlaying.value && !nowGenerating.value && !uiLocked.value) {
       void play();
@@ -123,14 +145,22 @@ registerHotkeyWithCleanup({
 });
 registerHotkeyWithCleanup({
   editor: "talk",
+<<<<<<< HEAD
   name: "显示重音栏",
+=======
+  name: "显示重音字段",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
   callback: () => {
     selectedDetail.value = "accent";
   },
 });
 registerHotkeyWithCleanup({
   editor: "talk",
+<<<<<<< HEAD
   name: "显示语调栏",
+=======
+  name: "显示语调字段",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
   callback: () => {
     if (supportedFeatures.value?.adjustMoraPitch) {
       selectedDetail.value = "pitch";
@@ -139,7 +169,11 @@ registerHotkeyWithCleanup({
 });
 registerHotkeyWithCleanup({
   editor: "talk",
+<<<<<<< HEAD
   name: "显示长度栏",
+=======
+  name: "显示长度字段",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
   callback: () => {
     if (supportedFeatures.value?.adjustPhonemeLength) {
       selectedDetail.value = "length";
@@ -251,7 +285,11 @@ const play = async () => {
     const msg = handlePossiblyNotMorphableError(e);
     void store.actions.SHOW_ALERT_DIALOG({
       title: "播放失败",
+<<<<<<< HEAD
       message: msg ?? "请尝试重新启动引擎",
+=======
+      message: msg ?? "请尝试重新启动引擎。",
+>>>>>>> 72351a4a7f5f58a73091465e40a10de4f9b781fe
     });
   }
 };
